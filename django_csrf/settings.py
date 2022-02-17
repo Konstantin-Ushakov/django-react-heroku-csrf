@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import django_heroku
 from pathlib import Path
 import os
 
@@ -138,8 +139,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_CREDENTIALS = True
 # change to https://app.example.com in production settings
-CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:8000', 'https://django-react-heroku-csrf.herokuapp.com']
+CORS_ORIGIN_WHITELIST = ['http://127.0.0.1', 'https://django-react-heroku-csrf.herokuapp.com']
 
 # change to app.example.com in production settings
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000', 'https://django-react-heroku-csrf.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'https://django-react-heroku-csrf.herokuapp.com']
 
+# Activate Django-Heroku.
+django_heroku.settings(locals())
